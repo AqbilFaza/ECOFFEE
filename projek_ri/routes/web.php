@@ -34,7 +34,26 @@ Route::get('/home', function (Request $r) {
     return view('home', compact('menus', 'search'));
 });
 
-Route::get('/profil', fn() => "Halaman profil user");
+Route::get('/profil', function () {
+    return view('profil', [
+        'nama' => session('nama'),
+        'hp'   => session('hp'),
+        'meja' => session('meja'),
+    ]);
+});
+
+Route::post('/profil/update', function (Illuminate\Http\Request $r) {
+    session([
+        'nama' => $r->nama,
+        'hp'   => $r->hp,
+        'meja' => $r->meja,
+    ]);
+
+    return redirect('/profil')->with('success', 'Profil berhasil diperbarui!');
+});
+
+
+// Route::get('/profil', fn() => "Halaman profil user");
 Route::get('/keranjang', fn() => "Halaman keranjang");
 Route::get('/riwayat', fn() => "Halaman riwayat");
 
