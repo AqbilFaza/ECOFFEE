@@ -19,7 +19,7 @@ https://www.figma.com/design/gDjq9R3kvdH9A7xZhYxnZ8/HF---RI?node-id=0-1&t=UJvhCQ
 ## Tabel Pembagian Tugas (Backlog)
 | Ecoffee           |            |             |
 |-------------------|------------|-------------|
-|   Agile Role      | Fitur 1    | Fitur 2     |
+|   Agile Role      | Pemesanan  | Pembayaran  |
 | Product Owner     | Aqbil      | Aqbil       |
 | Scrum Master      | Aqbil      | Aqbil       |
 | Tim Pengembang    | Aqbil      | Aqbil       |
