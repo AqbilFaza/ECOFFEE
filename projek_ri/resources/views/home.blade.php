@@ -207,7 +207,7 @@
 
         <div class="menu-grid">
             @forelse($menus as $m)
-                <div class="menu-item">
+                <div class="menu-item" onclick="location.href='/menu/{{ $m['nama'] }}'">
                     <img src="/images/menu/{{ $m['gambar'] }}">
                     <p>{{ $m['nama'] }}</p>
                     <div class="price">Rp {{ number_format($m['harga'], 0, ',', '.') }}</div>

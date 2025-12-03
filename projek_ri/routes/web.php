@@ -53,8 +53,55 @@ Route::post('/profil/update', function (Illuminate\Http\Request $r) {
 });
 
 
-// Route::get('/profil', fn() => "Halaman profil user");
-Route::get('/keranjang', fn() => "Halaman keranjang");
+
+// Halaman detail menu
+Route::get('/menu/{nama}', function ($nama) {
+    $menus = [
+        'Cappuccino'      => ['harga' => 20000, 'gambar' => 'cappuccino.png'],
+        'Espresso'        => ['harga' => 15000, 'gambar' => 'espresso.png'],
+        'Americano'       => ['harga' => 18000, 'gambar' => 'americano.png'],
+        'Kopi Gula Aren'  => ['harga' => 15000, 'gambar' => 'aren.png'],
+    ];
+
+    if (!isset($menus[$nama])) abort(404);
+
+    return view('detail-menu', [
+        'nama'   => $nama,
+        'harga'  => $menus[$nama]['harga'],
+        'gambar' => $menus[$nama]['gambar']
+    ]);
+});
+
+// Proses tambah ke keranjang
+Route::post('/keranjang/add', function (Request $r) {
+    $cart = session()->get('cart', []);
+
+    if (isset($cart[$r->nama])) {
+        $cart[$r->nama]['qty'] += $r->qty;
+    } else {
+        $cart[$r->nama] = [
+            'nama'   => $r->nama,
+            'harga'  => $r->harga,
+            'gambar' => $r->gambar,
+            'qty'    => $r->qty
+        ];
+    }
+
+    session(['cart' => $cart]);
+
+    return redirect('/keranjang');
+});
+
+// Halaman keranjang
+Route::get('/keranjang', function () {
+    $cart = session('cart', []);
+    $total = collect($cart)->sum(fn($c) => $c['harga'] * $c['qty']);
+
+    return view('keranjang', compact('cart', 'total'));
+});
+
+
+
 Route::get('/riwayat', fn() => "Halaman riwayat");
 
 Route::get('/logout', function () {

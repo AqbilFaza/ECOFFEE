@@ -103,7 +103,7 @@
             <input type="text" name="hp" placeholder="masukkan nomor hp" required>
 
             <label>Nomor Meja</label>
-            <input type="text" name="hp" placeholder="masukkan nomor hp" required>
+            <input type="text" name="hp" placeholder="masukkan nomor meja" required>
 
             <button type="submit">SELESAI</button>
         </form>
