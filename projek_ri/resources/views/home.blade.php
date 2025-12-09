@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Home</title>
 
     <style>
@@ -42,12 +43,14 @@
         .icon-profile {
             width: 34px;
             height: 34px;
-            border: 2px solid #2E6F4E;
+            border: 3px solid #2E6F4E;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
+            color: #2E6F4E;
+            font-size: 20px;
         }
 
         /* Dropdown profile */
@@ -103,6 +106,8 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
+            color: white;
+            font-size: 20px;
         }
 
         /* Menu Grid */
@@ -117,6 +122,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 14px;
+            cursor: pointer;
         }
 
         .menu-item {
@@ -128,7 +134,10 @@
         }
 
         .menu-item img {
-            width: 80px;
+            width: 105px;
+            height: 100px;          /* ukuran tinggi dibuat seragam */
+            object-fit: cover;      /* gambar tidak melar, hanya dipotong rapi */
+            border-radius: 8px;
         }
 
         .menu-item p {
@@ -164,6 +173,8 @@
         .nav-item {
             text-align: center;
             cursor: pointer;
+            color: #7a7a7aff;
+            font-size: 20px;
         }
 
         .active {
@@ -185,7 +196,7 @@
             </div>
 
             <div class="icon-profile" onclick="toggleDropdown()">
-                👤
+                <i class="fa-solid fa-user user-icon"></i>
             </div>
 
             <div class="dropdown" id="dropdownMenu">
@@ -198,7 +209,7 @@
         <form class="search-area" method="GET" action="/home">
             <input type="text" name="q" placeholder="Cari minumanmu" value="{{ $search }}">
             <button class="search-btn">
-                🔍
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
             </button>
         </form>
 
@@ -223,9 +234,15 @@
     <div class="bottom-nav">
         <div class="bottom-inner">
 
-            <a href="/home" class="nav-item active">🏠</a>
-            <a href="/keranjang" class="nav-item">🛒</a>
-            <a href="/riwayat" class="nav-item">⏱️</a>
+            <a href="/home" class="nav-item active">
+                <i class="fa-solid fa-house home-icon"></i>
+            </a>
+            <a href="/keranjang" class="nav-item">
+                <i class="fa-solid fa-cart-shopping cart-icon"></i>
+            </a>
+            <a href="/riwayat" class="nav-item">
+                <i class="fa-solid fa-clock-rotate-left history-icon"></i>
+            </a>
 
         </div>
     </div>

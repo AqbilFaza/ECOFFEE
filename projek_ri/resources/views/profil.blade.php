@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Edit Profil</title>
 
     <style>
@@ -101,6 +102,7 @@
             text-decoration: none;
             font-size: 20px;
             cursor: pointer;
+            color: #7a7a7aff;
         }
 
         .active {
@@ -115,7 +117,9 @@
 <div class="container">
 
     <div class="header">
-        <div class="back-btn" onclick="history.back()">←</div>
+        <div class="back-btn" onclick="history.back()">
+            <i class="fa-solid fa-angle-left back-icon"></i>
+        </div>
         <h2>Edit Data Pelanggan</h2>
     </div>
 
@@ -144,9 +148,15 @@
 <div class="bottom-nav">
     <div class="bottom-inner">
 
-        <a href="/home" class="nav-item">🏠</a>
-        <a href="/keranjang" class="nav-item">🛒</a>
-        <a href="/riwayat" class="nav-item">⏱️</a>
+        <a href="/home" class="nav-item active">
+            <i class="fa-solid fa-house home-icon"></i>
+        </a>
+        <a href="/keranjang" class="nav-item">
+            <i class="fa-solid fa-cart-shopping cart-icon"></i>
+        </a>
+        <a href="/riwayat" class="nav-item">
+            <i class="fa-solid fa-clock-rotate-left history-icon"></i>
+        </a>
 
     </div>
 </div>
