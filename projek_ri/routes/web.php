@@ -15,6 +15,7 @@ Route::post('/submit', function (Request $r) {
     return redirect('/home');
 });
 
+
 Route::get('/home', function (Request $r) {
     $menus = [
         ['nama' => 'Cappuccino', 'harga' => 20000, 'gambar' => 'cappuccino.png'],

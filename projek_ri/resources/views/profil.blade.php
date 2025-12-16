@@ -131,16 +131,68 @@
         @csrf
 
         <label>Nama Lengkap</label>
-        <input type="text" name="nama" value="{{ $nama }}" required>
+        <input type="text" name="nama" id="nama" value="{{ $nama }}">
+        <small id="error-nama" style="color:red;"></small>
 
         <label>Nomor HP</label>
-        <input type="text" name="hp" value="{{ $hp }}" required>
+        <input type="text" name="hp" id="hp" value="{{ $hp }}">
+        <small id="error-hp" style="color:red;"></small>
 
         <label>Nomor Meja</label>
-        <input type="text" name="meja" value="{{ $meja }}" required>
+        <input type="text" name="meja" id="meja" value="{{ $meja }}">
+        <small id="error-meja" style="color:red;"></small>
 
         <button type="submit">Simpan Perubahan</button>
     </form>
+
+    <script>
+    const nama  = document.getElementById('nama');
+    const hp    = document.getElementById('hp');
+    const meja  = document.getElementById('meja');
+    const btn   = document.querySelector('button');
+
+    function validateNama() {
+        if (!/^[a-zA-Z\s]+$/.test(nama.value)) {
+            document.getElementById('error-nama').innerText = 
+                'Nama tidak boleh mengandung angka atau simbol';
+            return false;
+        }
+        document.getElementById('error-nama').innerText = '';
+        return true;
+    }
+
+    function validateHP() {
+        if (!/^[0-9]{10,13}$/.test(hp.value)) {
+            document.getElementById('error-hp').innerText = 
+                'Nomor HP harus 10–13 digit angka';
+            return false;
+        }
+        document.getElementById('error-hp').innerText = '';
+        return true;
+    }
+
+    function validateMeja() {
+        if (!/^[0-9]+$/.test(meja.value)) {
+            document.getElementById('error-meja').innerText = 
+                'Nomor meja harus berupa angka';
+            return false;
+        }
+        document.getElementById('error-meja').innerText = '';
+        return true;
+    }
+
+    // realtime validation
+    nama.addEventListener('input', validateNama);
+    hp.addEventListener('input', validateHP);
+    meja.addEventListener('input', validateMeja);
+
+    // cegah submit jika error
+    document.querySelector('form').addEventListener('submit', function(e) {
+        if (!validateNama() || !validateHP() || !validateMeja()) {
+            e.preventDefault();
+        }
+    });
+    </script>
 
 </div>
 
