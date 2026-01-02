@@ -92,7 +92,7 @@
 <div class="container">
     <h2 style="text-align:center;">Riwayat Pesanan</h2>
 
-    @forelse($riwayat as $i => $r)
+    @forelse($orders as $i => $o)
         <div class="item">
 
             <!-- Nomor di kiri tengah -->
@@ -100,10 +100,13 @@
 
             <!-- Info pesanan di tengah -->
             <div class="middle-info">
-                <div>{{ $r['nama'] }}</div>
-                <div>Nomor Meja : {{ $r['meja'] }}</div>
-                <div>{{ $r['waktu'] }}</div>
-                <div>Bayar Melalui Tunai (<span class="status">{{ $r['status'] }}</span>)</div>
+                <div>{{ $o->customer->nama }}</div>
+                <div>Meja: {{ $o->customer->meja }}</div>
+                <div>{{ $o->created_at->format('d/m/Y H:i') }}</div>
+                <!-- <div>Tunai (<span class="status">{{ $o->status }}</span>)</div> -->
+                <div>Tunai (<span class="status">
+                    {{ $o->status === 'LUNAS' ? 'LUNAS' : 'MENUNGGU PEMBAYARAN' }}
+                </span>)</div>
             </div>
 
             <!-- Lihat status di kanan tengah -->
