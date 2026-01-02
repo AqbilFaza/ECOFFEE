@@ -5,7 +5,7 @@ Ecoffee
 <p align="justify">Melalui website ini, pelanggan dapat melihat menu lengkap, memilih pesanan, menyesuaikan varian, serta melakukan pemesanan tanpa perlu antre atau menunggu barista mencatat pesanan secara manual.</p>
 <p align="justify">Ecoffee dirancang untuk meningkatkan kenyamanan pelanggan sekaligus membantu kedai dalam mempercepat proses pelayanan, meminimalkan kesalahan pencatatan, dan menciptakan pengalaman ngopi yang lebih efisien dan menyenangkan.</p>
 
-## Kelas-NIM-Nama-Username github
+## Kelas-NIM-Nama-Username Github
 Kelas : Rekayasa Interaksi B<br>
 NIM : 202010370311520<br>
 Nama : Muhammad Aqbil Faza Rachman<br>
