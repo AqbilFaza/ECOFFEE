@@ -46,4 +46,13 @@ class OrderController extends Controller {
 
         return view('riwayat', compact('orders'));
     }
+
+    public function status(Order $order){
+        // keamanan: hanya bisa lihat pesanan sendiri
+        if ($order->customer_id !== session('customer_id')) {
+            abort(403);
+        }
+
+        return view('status-pesanan', compact('order'));
+    }
 }

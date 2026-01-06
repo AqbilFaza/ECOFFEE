@@ -40,7 +40,7 @@
             border: 2px solid #bfbfbf;   /* SEBELUM DIPILIH = abu-abu */
             border-radius: 10px;
             padding: 12px;
-            width: 140px;
+            width: 100px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -53,7 +53,7 @@
         }
 
         .pay-box img {
-            width: 45px;
+            width: 60px;
             margin-bottom: 8px;
         }
 
@@ -123,9 +123,16 @@
     <h2>Metode Bayar</h2>
 
     <div class="pay-container">
-        <div class="pay-box" id="payTunai">
-            <img src="https://cdn-icons-png.flaticon.com/512/1998/1998611.png">
+        <!-- TUNAI -->
+        <div class="pay-box" id="payTunai" data-metode="TUNAI">
+            <img src="/images/Tunai.png">
             <div><b>Tunai</b></div>
+        </div>
+
+        <!-- QRIS -->
+        <div class="pay-box" id="payQris" data-metode="QRIS" style="margin-left:15px;">
+            <img src="/images/qris.png">
+            <div><b>QRIS</b></div>
         </div>
     </div>
 

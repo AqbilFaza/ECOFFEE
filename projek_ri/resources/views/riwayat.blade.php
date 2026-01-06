@@ -51,11 +51,12 @@
             font-weight: bold;
         }
 
-        .link-status {
+        .link-status a {
             color: #1a7f5a;
             cursor: pointer;
             white-space: nowrap;
             text-align: right;
+            text-decoration: none;
         }
 
         /* nav bawah */
@@ -110,7 +111,9 @@
             </div>
 
             <!-- Lihat status di kanan tengah -->
-            <div class="link-status">Lihat Status</div>
+            <div class="link-status">
+                <a href="/status/{{ $o->id }}">Lihat Status</a>
+            </div>
 
         </div>
     @empty

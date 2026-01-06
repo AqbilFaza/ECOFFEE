@@ -8,7 +8,7 @@ use App\Models\Order;
 class OrderAdminController extends Controller {
 
     public function index() {
-        $orders = Order::with('customer')
+        $orders = Order::with(['customer', 'items'])
             ->latest()
             ->get();
 

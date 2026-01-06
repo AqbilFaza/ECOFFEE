@@ -37,7 +37,7 @@ Route::get('/menunggu-bayar', function () {
     return view('menunggu-bayar');
 });
 
-
+Route::get('/status/{order}', [OrderController::class, 'status']);
 
 // LOGIN ADMIN
 Route::get('/admin/login', [AuthController::class, 'loginForm']);

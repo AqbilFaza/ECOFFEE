@@ -23,6 +23,13 @@
             background: #2E6F4E;
             color: #fff;
         }
+        td ul {
+            list-style: disc;
+            font-size: 13px;
+        }
+        td ul li {
+            margin-bottom: 4px;
+        }
         .btn {
             padding: 6px 12px;
             background: #2E6F4E;
@@ -68,6 +75,7 @@
         <th>Nama</th>
         <th>Meja</th>
         <th>Total</th>
+        <th>Pesanan</th>
         <th>Status</th>
         <th>Aksi</th>
     </tr>
@@ -78,6 +86,16 @@
         <td>{{ $o->customer->nama }}</td>
         <td>{{ $o->customer->meja }}</td>
         <td>Rp {{ number_format($o->total,0,',','.') }}</td>
+        <td>
+            <ul style="padding-left:16px; margin:0;">
+                @foreach($o->items as $item)
+                    <li>
+                        {{ $item->nama }} 
+                        ({{ $item->qty }}x)
+                    </li>
+                @endforeach
+            </ul>
+        </td>
         <td>
             @if($o->status === 'MENUNGGU_PEMBAYARAN')
                 <span class="badge wait">Menunggu</span>
