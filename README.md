@@ -13,7 +13,7 @@ Username : AqbilFaza<br>
 ## Link Figma
 https://www.figma.com/design/gDjq9R3kvdH9A7xZhYxnZ8/HF---RI?node-id=0-1&t=UJvhCQJs1jM7R64f-1
 ## Worksheet
-[Worksheet.pdf](https://github.com/user-attachments/files/23738533/Worksheet.pdf)
+[Worksheet.pdf](https://github.com/user-attachments/files/24489283/Worksheet.pdf)
 ## Low Fidelity Prototype
 [Low Fidelity RI.pdf](https://github.com/user-attachments/files/23736349/Low.Fidelity.RI.pdf)
 ## Tabel Pembagian Tugas (Backlog)
