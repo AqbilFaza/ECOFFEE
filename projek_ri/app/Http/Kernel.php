@@ -1,5 +1,11 @@
 <?php
 
+
+// Sejak Laravel 10, Kernel.php TIDAK LAGI DIGUNAKAN untuk mendaftarkan route middleware
+// Middleware HARUS didaftarkan di bootstrap/app.php
+// File ini boleh dikosongkan/dihapus
+
+
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -43,5 +49,6 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'admin.auth' => \App\Http\Middleware\AdminAuth::class,
+        'customer.auth' => \App\Http\Middleware\CustomerAuth::class,
     ];
 }

@@ -16,28 +16,32 @@ use App\Http\Controllers\Admin\AuthController;
 Route::get('/', [CustomerController::class, 'form']);
 Route::post('/submit', [CustomerController::class, 'store']);
 
-Route::get('/home', [HomeController::class, 'index']);
+// CUSTOMER AREA (PROTECTED)
+Route::middleware('customer.auth')->group(function () {
 
-Route::get('/menu/{nama}', [MenuController::class, 'show']);
+    Route::get('/home', [HomeController::class, 'index']);
 
-Route::post('/keranjang/add', [CartController::class, 'add']);
-Route::get('/keranjang', [CartController::class, 'index']);
-Route::post('/keranjang/update-qty', [CartController::class, 'updateQty']);
+    Route::get('/menu/{nama}', [MenuController::class, 'show']);
 
-Route::get('/metode-bayar', [OrderController::class, 'metode']);
-Route::post('/bayar/konfirmasi', [OrderController::class, 'store']);
+    Route::post('/keranjang/add', [CartController::class, 'add']);
+    Route::get('/keranjang', [CartController::class, 'index']);
+    Route::post('/keranjang/update-qty', [CartController::class, 'updateQty']);
 
-Route::get('/riwayat', [OrderController::class, 'riwayat']);
+    Route::get('/metode-bayar', [OrderController::class, 'metode']);
+    Route::post('/bayar/konfirmasi', [OrderController::class, 'store']);
 
-Route::get('/profil', [CustomerController::class, 'profil']);
-Route::post('/profil/update', [CustomerController::class, 'updateProfil']);
-Route::get('/logout', [CustomerController::class, 'logout']);
+    Route::get('/riwayat', [OrderController::class, 'riwayat']);
+    Route::get('/status/{order}', [OrderController::class, 'status']);
+
+    Route::get('/profil', [CustomerController::class, 'profil']);
+    Route::post('/profil/update', [CustomerController::class, 'updateProfil']);
+
+    Route::get('/logout', [CustomerController::class, 'logout']);
+});
 
 Route::get('/menunggu-bayar', function () {
     return view('menunggu-bayar');
 });
-
-Route::get('/status/{order}', [OrderController::class, 'status']);
 
 // LOGIN ADMIN
 Route::get('/admin/login', [AuthController::class, 'loginForm']);

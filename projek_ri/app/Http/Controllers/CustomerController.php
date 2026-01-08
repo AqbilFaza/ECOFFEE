@@ -12,6 +12,10 @@ class CustomerController extends Controller
     // =========================
     public function form()
     {
+        if (session()->has('customer_id')) {
+            return redirect('/home');
+        }
+
         return view('customer-form');
     }
 
